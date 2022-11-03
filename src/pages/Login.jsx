@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
 
@@ -14,13 +15,18 @@ export default class Login extends Component {
     this.setState({ inputDisabled: !inputValid });
   };
 
-  sendUser = () => {
+  sendUser = async () => {
+    this.setState({ inputDisabled: true, loading: true });
     const input = document.getElementById('login-name').value;
-    return createUser({ name: input });
+    await createUser({ name: input });
+    this.setState({ inputDisabled: false, loading: false });
+    // certo?
+    const { history } = this.props;
+    history.push('/search');
   };
 
   render() {
-    const { inputDisabled } = this.state;
+    const { inputDisabled, loading } = this.state;
 
     return (
       <div data-testid="page-login">
@@ -45,9 +51,13 @@ export default class Login extends Component {
           </button>
         </form>
         <div className="loading-container">
-          <Loading />
+          { loading && <Loading />}
         </div>
       </div>
     );
   }
 }
+
+Login.propTypes = {
+  history: PropTypes.string.isRequired,
+};
