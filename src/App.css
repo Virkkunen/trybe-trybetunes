@@ -13,6 +13,26 @@
   padding: 24px;
 }
 
+.header-nav {
+  column-gap: 24px;
+  display: flex;
+}
+
+.header-link {
+  color: #f3f3f3;
+  text-decoration: none;
+  text-shadow: 3px 3px 10px black;
+  transition: 0.25s ease-in-out;
+}
+
+.header-link:hover {
+  filter: brightness(125%);
+}
+
+.header-link:active {
+  filter: brightness(75%);
+}
+
 /* Loading */
 
 @keyframes spinner {
