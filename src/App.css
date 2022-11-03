@@ -4,6 +4,45 @@
   padding: 0;
 }
 
+/* search */
+.search-container {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+}
+
+.search-form {
+  display: flex;
+  flex-flow: column wrap;
+  row-gap: 12px;
+}
+
+/* Button */
+button {
+  border-radius: 8px;
+  padding: 4px;
+  transition: 0.25s ease-in-out;
+}
+
+button:hover {
+  filter: brightness(125%);
+}
+
+button:active {
+  filter: brightness(75%);
+}
+
+button:disabled {
+  filter: saturate(25%) brightness(75%);
+}
+
+input {
+  border-radius: 8px;
+  padding: 4px;
+}
+
 /* Header */
 .header {
   background-color: #5d6ac0;
