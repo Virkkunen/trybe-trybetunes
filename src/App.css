@@ -14,6 +14,11 @@ body {
   background-color: #89b4fa;
 }
 
+.link-no-decoration {
+  color: #cdd6f4;
+  text-decoration: none;
+}
+
 /* search */
 .search-container {
   align-content: center;

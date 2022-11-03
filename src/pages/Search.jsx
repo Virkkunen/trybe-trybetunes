@@ -10,6 +10,7 @@ export default class Search extends Component {
     loading: false,
     searchInput: '',
     searchResults: [],
+    searchMade: false,
   };
 
   inputValidation = (e) => {
@@ -24,54 +25,57 @@ export default class Search extends Component {
 
   clearInput = () => {
     const input = document.getElementById('search-input');
-    input.innerText = '';
+    input.value = '';
   };
 
   searchSongs = async () => {
     const { searchInput } = this.state;
     this.setState({ loading: true });
     this.clearInput();
-    console.log(this.state);
     const results = await searchAlbumsAPI(searchInput);
-    this.setState({ searchResults: results, loading: false });
+    this.setState({
+      searchResults: results,
+      loading: false,
+      searchMade: true,
+    });
   };
 
   render() {
-    const { inputDisabled, loading, searchResults, searchInput } = this.state;
+    const { inputDisabled, loading, searchResults, searchInput, searchMade } = this.state;
+    const successfulSearchResults = searchMade && searchResults.length > 0;
+    const emptySearchResults = searchMade && searchResults.length === 0;
 
     return (
       <div data-testid="page-search">
         <Header />
         <div className="search-container">
-          <div className="search-input-container">
-            <form>
-              <label htmlFor="music-search" className="search-form">
-                <input
-                  type="text"
-                  data-testid="search-artist-input"
-                  placeholder="Nome do artista"
-                  id="search-input"
-                  onChange={ this.inputLogic }
-                />
-                <button
-                  type="button"
-                  data-testid="search-artist-button"
-                  disabled={ inputDisabled }
-                  onClick={ this.searchSongs }
-                  className="blue"
-                >
-                  Pesquisar
-                </button>
-              </label>
-            </form>
-          </div>
+          <form>
+            <label htmlFor="music-search" className="search-form">
+              <input
+                type="text"
+                data-testid="search-artist-input"
+                placeholder="Nome do artista"
+                id="search-input"
+                onChange={ this.inputLogic }
+              />
+              <button
+                type="button"
+                data-testid="search-artist-button"
+                disabled={ inputDisabled }
+                onClick={ this.searchSongs }
+                className="blue"
+              >
+                Pesquisar
+              </button>
+            </label>
+          </form>
           <span className="results-text">
-            {`Resultados de álbuns de: ${searchInput}`}
+            {`Resultado de álbuns de: ${searchInput}`}
           </span>
           <div className="songs-container">
             { loading && <Loading />}
             <div className="search-results">
-              { searchResults.map((item) => (
+              { successfulSearchResults && searchResults.map((item) => (
                 <MusicCard
                   artistId={ item.artistId }
                   artistName={ item.artistName }
@@ -83,7 +87,8 @@ export default class Search extends Component {
                   trackCount={ item.trackCount }
                   key={ item.collectionId }
                 />
-              )) }
+              ))}
+              { emptySearchResults && <span>Nenhum álbum foi encontrado</span> }
             </div>
           </div>
         </div>
