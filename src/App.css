@@ -4,6 +4,15 @@
   padding: 0;
 }
 
+/* Header */
+.header {
+  background-color: #5d6ac0;
+  color: #f3f3f3;
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
 /* Loading */
 
 @keyframes spinner {
@@ -20,10 +29,10 @@
 .loading {
   align-content: center;
   align-items: center;
+  column-gap: 12px;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   justify-content: center;
-  row-gap: 12px;
 }
 
 .loading span {
@@ -32,10 +41,10 @@
 
 .loading-spinner {
   animation: spinner 1.5s linear infinite;
-  border: 6px solid #f3f3f3;
+  border: 4px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 6px solid #5d6ac0;
-  height: 32px;
-  width: 32px;
+  border-top: 4px solid #5d6ac0;
+  height: 16px;
+  width: 16px;
 
 }
