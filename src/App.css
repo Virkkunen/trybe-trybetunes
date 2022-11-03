@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Loading */
+
+@keyframes spinner {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  row-gap: 12px;
+}
+
+.loading span {
+  font-weight: 600;
+}
+
+.loading-spinner {
+  animation: spinner 1.5s linear infinite;
+  border: 6px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 6px solid #5d6ac0;
+  height: 32px;
+  width: 32px;
+
+}

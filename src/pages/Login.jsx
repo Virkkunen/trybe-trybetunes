@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
 
 export default class Login extends Component {
   state = {
     inputDisabled: true,
+    loading: false,
   };
 
   inputValidation = (e) => {
@@ -42,6 +44,9 @@ export default class Login extends Component {
             Entrar
           </button>
         </form>
+        <div className="loading-container">
+          <Loading />
+        </div>
       </div>
     );
   }
