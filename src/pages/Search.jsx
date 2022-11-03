@@ -32,6 +32,7 @@ export default class Search extends Component {
                 type="button"
                 data-testid="search-artist-button"
                 disabled={ inputDisabled }
+                className="blue"
               >
                 Pesquisar
               </button>
