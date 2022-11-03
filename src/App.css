@@ -20,8 +20,8 @@ body {
   align-items: center;
   display: flex;
   flex-flow: column wrap;
-  height: 80vh;
   justify-content: center;
+  margin-top: 48px;
   row-gap: 48px;
 }
 
@@ -29,6 +29,16 @@ body {
   display: flex;
   flex-flow: column wrap;
   row-gap: 12px;
+}
+
+.search-results {
+  align-content: center;
+  align-items: baseline;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: 0 24px;
 }
 
 /* Button */
@@ -120,5 +130,31 @@ input {
   border-top: 4px solid #5d6ac0;
   height: 16px;
   width: 16px;
+}
 
+/* music card */
+.music-card {
+  background-color: #11111b;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: column;
+  width: 200px;
+}
+
+.album-art {
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+  /* width: 200px; */
+}
+
+.album-info {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 8px;
+  row-gap: 12px;
+}
+
+.album-title {
+  font-weight: 700;
 }

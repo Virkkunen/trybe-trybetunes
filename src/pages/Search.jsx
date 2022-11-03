@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import MusicCard from '../components/MusicCard';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 
 export default class Search extends Component {
@@ -8,7 +9,7 @@ export default class Search extends Component {
     inputDisabled: true,
     loading: false,
     searchInput: '',
-    seachResults: [],
+    searchResults: [],
   };
 
   inputValidation = (e) => {
@@ -32,11 +33,11 @@ export default class Search extends Component {
     this.clearInput();
     console.log(this.state);
     const results = await searchAlbumsAPI(searchInput);
-    this.setState({ seachResults: results, loading: false });
+    this.setState({ searchResults: results, loading: false });
   };
 
   render() {
-    const { inputDisabled, loading, seachResults, searchInput } = this.state;
+    const { inputDisabled, loading, searchResults, searchInput } = this.state;
 
     return (
       <div data-testid="page-search">
@@ -64,10 +65,26 @@ export default class Search extends Component {
               </label>
             </form>
           </div>
+          <span className="results-text">
+            {`Resultados de álbuns de: ${searchInput}`}
+          </span>
           <div className="songs-container">
-            <span>{`Resultados de álbuns de: ${searchInput}`}</span>
             { loading && <Loading />}
-            <div className="search-results">a</div>
+            <div className="search-results">
+              { searchResults.map((item) => (
+                <MusicCard
+                  artistId={ item.artistId }
+                  artistName={ item.artistName }
+                  artworkUrl={ item.artworkUrl100 }
+                  collectionId={ item.collectionId }
+                  collectionName={ item.collectionName }
+                  collectionPrice={ item.collectionPrice }
+                  releaseDate={ item.releaseDate }
+                  trackCount={ item.trackCount }
+                  key={ item.collectionId }
+                />
+              )) }
+            </div>
           </div>
         </div>
 
