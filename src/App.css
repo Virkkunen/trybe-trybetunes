@@ -150,7 +150,6 @@ input {
 .album-art {
   border-radius: 8px 8px 0 0;
   object-fit: cover;
-  /* width: 200px; */
 }
 
 .album-info {
