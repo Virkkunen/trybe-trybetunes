@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default class UserCard extends Component {
   render() {
@@ -16,8 +17,14 @@ export default class UserCard extends Component {
           <img
             src={ image }
             alt={ name }
+            data-testid="profile-image"
           />
-          <button type="button">Edit</button>
+          <Link
+            to="/profile/edit"
+            className="link-no-decoration"
+          >
+            Editar perfil
+          </Link>
         </div>
         <div className="user-name">
           <span className="user-card-title">Nome</span>
@@ -47,4 +54,5 @@ UserCard.propTypes = {
   email: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
+  // history: PropTypes.instanceOf(Object).isRequired,
 };

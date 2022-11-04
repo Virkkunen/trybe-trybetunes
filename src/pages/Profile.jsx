@@ -18,7 +18,6 @@ export default class Profile extends Component {
   grabUser = async () => {
     this.setState({ loading: true });
     const info = await getUser();
-    console.log('info', info);
     this.setState({ loading: false, userInfo: info, fetchedUser: true });
   };
 
