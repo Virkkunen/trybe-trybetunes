@@ -42,8 +42,18 @@ export default class Album extends Component {
         <div className="album-songs-container">
           <div className="album-art-info">
             <img src={ albumArt } alt={ albumName } />
-            <span className="album-title-detail">{ albumName }</span>
-            <span className="artist-title-detail">{ artistName }</span>
+            <span
+              className="album-title-detail"
+              data-testid="album-name"
+            >
+              { albumName }
+            </span>
+            <span
+              className="artist-title-detail"
+              data-testid="artist-name"
+            >
+              { artistName }
+            </span>
           </div>
           <div className="songs-list">a</div>
         </div>

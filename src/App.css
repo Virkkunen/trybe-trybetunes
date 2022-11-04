@@ -226,6 +226,7 @@ input:active {
 
 /* album page */
 .album-songs-container {
+  align-items: baseline;
   column-gap: 48px;
   display: flex;
   justify-content: center;
