@@ -53,13 +53,15 @@ body {
 }
 
 .search-results {
-  align-content: center;
   align-items: baseline;
+  background-color: #313244;
+  border-radius: 8px;
   display: flex;
   flex-flow: row wrap;
   gap: 12px;
   justify-content: center;
-  padding: 0 24px;
+  margin: 0 50px;
+  padding: 50px 25px;
 }
 
 /* Button */
