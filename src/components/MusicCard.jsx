@@ -4,7 +4,14 @@ import AudioPlayer from './AudioPlayer';
 
 export default class MusicCard extends Component {
   render() {
-    const { trackName, previewUrl, trackId, checked, favoriteSong } = this.props;
+    const {
+      trackName,
+      previewUrl,
+      trackId,
+      checked,
+      favoriteSong,
+    } = this.props;
+
     return (
       <div className="music-card">
         <span>{ trackName }</span>
@@ -28,10 +35,15 @@ export default class MusicCard extends Component {
   }
 }
 
+MusicCard.defaultProps = {
+  checked: false,
+  favoriteSong: () => console.log('default favoriteSong'),
+};
+
 MusicCard.propTypes = {
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
-  checked: PropTypes.bool.isRequired,
-  favoriteSong: PropTypes.func.isRequired,
+  checked: PropTypes.bool,
+  favoriteSong: PropTypes.func,
 };

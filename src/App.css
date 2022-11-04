@@ -317,3 +317,10 @@ strong {
   color: #a6e3a1;
   font-weight: 800;
 }
+
+.favorite-songs-list {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 48px;
+  row-gap: 24px;
+}

@@ -104,7 +104,6 @@ export default class Album extends Component {
                 trackName={ song.trackName }
                 previewUrl={ song.previewUrl }
                 trackId={ song.trackId }
-                songInfo={ song }
                 favoriteSong={ () => this.favoriteSong(song) }
                 checked={ song.checked }
                 key={ song.trackId }
