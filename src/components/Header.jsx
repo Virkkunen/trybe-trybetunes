@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMusic, faSearch, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
@@ -23,13 +25,22 @@ export default class Header extends Component {
     const { user, loading } = this.state;
     return (
       <div data-testid="header-component" className="header">
-        <span>TrybeTunes</span>
+        <div className="header-logo">
+          <FontAwesomeIcon icon={ faMusic } size="sm" />
+          <span>
+            trybe
+            <span className="header-logo-tunes">
+              tunes
+            </span>
+          </span>
+        </div>
         <nav className="header-nav">
           <Link
             to="/search"
             data-testid="link-to-search"
             className="header-link"
           >
+            <FontAwesomeIcon icon={ faSearch } fixedWidth size="xs" />
             Busca
           </Link>
           <Link
@@ -37,6 +48,7 @@ export default class Header extends Component {
             data-testid="link-to-favorites"
             className="header-link"
           >
+            <FontAwesomeIcon icon={ faHeart } fixedWidth size="xs" />
             Favoritas
           </Link>
           <Link
@@ -44,6 +56,7 @@ export default class Header extends Component {
             data-testid="link-to-profile"
             className="header-link"
           >
+            <FontAwesomeIcon icon={ faUser } fixedWidth size="xs" />
             Perfil
           </Link>
         </nav>

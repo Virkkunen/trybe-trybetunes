@@ -47,8 +47,11 @@ body {
 }
 
 .search-form {
+  background-color: #313244;
+  border-radius: 8px;
   display: flex;
   flex-flow: column wrap;
+  padding: 12px;
   row-gap: 12px;
 }
 
@@ -62,6 +65,12 @@ body {
   justify-content: center;
   margin: 0 50px;
   padding: 50px 25px;
+}
+
+.results-text {
+  background-color: #313244;
+  border-radius: 8px;
+  padding: 12px;
 }
 
 /* Button */
@@ -283,6 +292,11 @@ input:active {
   font-weight: 500;
   justify-content: space-between;
   padding: 6px;
+}
+
+/* misc */
+.header-logo-tunes {
+  font-weight: 800;
 }
 
 strong {

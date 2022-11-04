@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import AlbumCard from '../components/AlbumCard';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export default class Search extends Component {
   state = {
@@ -40,6 +42,11 @@ export default class Search extends Component {
     });
   };
 
+  submitOnEnter = (e) => {
+    e.preventDefault();
+    this.searchSongs();
+  };
+
   render() {
     const { inputDisabled, loading, searchResults, searchInput, searchMade } = this.state;
     const successfulSearchResults = searchMade && searchResults.length > 0;
@@ -49,7 +56,7 @@ export default class Search extends Component {
       <div data-testid="page-search">
         <Header />
         <div className="search-container">
-          <form>
+          <form onSubmit={ this.submitOnEnter }>
             <label htmlFor="music-search" className="search-form">
               <input
                 type="text"
@@ -57,6 +64,7 @@ export default class Search extends Component {
                 placeholder="Nome do artista"
                 id="search-input"
                 onChange={ this.inputLogic }
+                onSubmit={ this.inputEnter }
               />
               <button
                 type="button"
@@ -69,10 +77,10 @@ export default class Search extends Component {
               </button>
             </label>
           </form>
-          <span className="results-text">
+          <span className="results-text" hidden={ !searchMade }>
             {`Resultado de álbuns de: ${searchInput}`}
           </span>
-          <div className="songs-container">
+          <div className="songs-container" hidden={ !searchMade }>
             { loading && <Loading />}
             <div className="search-results">
               { successfulSearchResults && searchResults.map((item) => (
