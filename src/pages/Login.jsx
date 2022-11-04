@@ -52,7 +52,7 @@ export default class Login extends Component {
               data-testid="login-name-input"
               id="login-name"
               onChange={ this.inputValidation }
-              placeholder="Nome"
+              placeholder="Name"
             />
           </label>
 
@@ -63,7 +63,7 @@ export default class Login extends Component {
             onClick={ this.sendUser }
             className="green"
           >
-            Entrar
+            Login
           </button>
         </form>
 

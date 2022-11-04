@@ -1,4 +1,7 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import AlbumCard from '../components/AlbumCard';
@@ -59,7 +62,7 @@ export default class Search extends Component {
               <input
                 type="text"
                 data-testid="search-artist-input"
-                placeholder="Nome do artista"
+                placeholder="Artist name"
                 id="search-input"
                 onChange={ this.inputLogic }
                 onSubmit={ this.inputEnter }
@@ -71,12 +74,13 @@ export default class Search extends Component {
                 onClick={ this.searchSongs }
                 className="blue"
               >
-                Pesquisar
+                Search
+                <FontAwesomeIcon icon={ faSearch } size="xs" fixedWidth />
               </button>
             </label>
           </form>
           <span className="results-text" hidden={ !searchMade }>
-            {`Resultado de álbuns de: ${searchInput}`}
+            {`Album results for: ${searchInput}`}
           </span>
           <div className="songs-container" hidden={ !searchMade }>
             { loading && <Loading />}
@@ -94,7 +98,7 @@ export default class Search extends Component {
                   key={ item.collectionId }
                 />
               ))}
-              { emptySearchResults && <span>Nenhum álbum foi encontrado</span> }
+              { emptySearchResults && <span>No albumns found.</span> }
             </div>
           </div>
         </div>

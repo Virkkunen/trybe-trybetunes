@@ -11,7 +11,7 @@ export default class AudioPlayer extends Component {
         controls
       >
         <track kind="captions" />
-        O seu navegador não suporta o elemento
+        Your browser does not support this component.
         <code>audio</code>
         .
       </audio>

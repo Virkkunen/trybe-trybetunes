@@ -41,7 +41,7 @@ export default class Header extends Component {
             className="header-link"
           >
             <FontAwesomeIcon icon={ faSearch } fixedWidth size="xs" />
-            Busca
+            Search
           </Link>
           <Link
             to="/favorites"
@@ -49,7 +49,7 @@ export default class Header extends Component {
             className="header-link"
           >
             <FontAwesomeIcon icon={ faHeart } fixedWidth size="xs" />
-            Favoritas
+            Favourites
           </Link>
           <Link
             to="/profile"
@@ -57,7 +57,7 @@ export default class Header extends Component {
             className="header-link"
           >
             <FontAwesomeIcon icon={ faUser } fixedWidth size="xs" />
-            Perfil
+            Profile
           </Link>
         </nav>
         { loading

@@ -29,7 +29,6 @@ export default class MusicCard extends Component {
               onChange={ favoriteSong }
               checked={ checked }
             />
-            Favorita
           </label>
         </div>
       </div>

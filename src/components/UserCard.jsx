@@ -23,11 +23,11 @@ export default class UserCard extends Component {
             to="/profile/edit"
             className="link-no-decoration"
           >
-            Editar perfil
+            Edit Profile
           </Link>
         </div>
         <div className="user-name">
-          <span className="user-card-title">Nome</span>
+          <span className="user-card-title">Name</span>
           <span>{name}</span>
         </div>
         <div className="user-email">
@@ -35,7 +35,7 @@ export default class UserCard extends Component {
           <span>{email}</span>
         </div>
         <div className="user-description">
-          <span className="user-card-title">Descrição</span>
+          <span className="user-card-title">Description</span>
           <span>{description}</span>
         </div>
       </div>

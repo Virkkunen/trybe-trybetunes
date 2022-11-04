@@ -72,7 +72,7 @@ export default class ProfileEdit extends Component {
             <label htmlFor="image">
               <input
                 type="text"
-                placeholder="Link"
+                placeholder="Image link"
                 name="image"
                 data-testid="edit-input-image"
                 value={ image }
@@ -81,11 +81,11 @@ export default class ProfileEdit extends Component {
             </label>
           </div>
           <div className="user-name">
-            <span className="user-card-title">Nome</span>
+            <span className="user-card-title">Name</span>
             <label htmlFor="name">
               <input
                 type="text"
-                placeholder="Nome"
+                placeholder="Name"
                 name="name"
                 data-testid="edit-input-name"
                 value={ name }
@@ -98,7 +98,7 @@ export default class ProfileEdit extends Component {
             <label htmlFor="email">
               <input
                 type="text"
-                placeholder="Link"
+                placeholder="Email"
                 name="email"
                 data-testid="edit-input-email"
                 value={ email }
@@ -107,11 +107,11 @@ export default class ProfileEdit extends Component {
             </label>
           </div>
           <div className="user-description">
-            <span className="user-card-title">Descrição</span>
+            <span className="user-card-title">Description</span>
             <label htmlFor="description">
               <input
                 type="text"
-                placeholder="Link"
+                placeholder="Description"
                 name="description"
                 data-testid="edit-input-description"
                 value={ description }
@@ -126,7 +126,7 @@ export default class ProfileEdit extends Component {
             onClick={ this.sendUser }
             disabled={ this.validateSave() }
           >
-            Salvar
+            Save
           </button>
           { updatedUser && <Redirect to="/profile" /> }
         </div>
