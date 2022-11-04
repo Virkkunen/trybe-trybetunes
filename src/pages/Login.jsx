@@ -38,7 +38,7 @@ export default class Login extends Component {
     return (
       <div data-testid="page-login" className="login-container">
         <div className="login-logo">
-          <FontAwesomeIcon icon={ faMusic } size="2x" />
+          <FontAwesomeIcon icon={ faMusic } size="2x" beat fixedWidth />
           <span className="login-title">
             trybe
             <strong>tunes</strong>
