@@ -3,6 +3,7 @@ import PropTypes, { object } from 'prop-types';
 import getMusics from '../services/musicsAPI';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
+import MusicCard from '../components/MusicCard';
 
 export default class Album extends Component {
   state = {
@@ -11,6 +12,7 @@ export default class Album extends Component {
     albumName: '',
     artistName: '',
     loading: false,
+    songsFetched: false,
   };
 
   componentDidMount() {
@@ -30,11 +32,19 @@ export default class Album extends Component {
       albumName: songs[0].collectionName,
       artistName: songs[0].artistName,
       loading: false,
+      songsFetched: true,
     });
   };
 
   render() {
-    const { loading, songList, albumArt, albumName, artistName } = this.state;
+    const {
+      loading,
+      songList,
+      albumArt,
+      albumName,
+      artistName,
+      songsFetched,
+    } = this.state;
     return (
       <div data-testid="page-album">
         <Header />
@@ -55,7 +65,15 @@ export default class Album extends Component {
               { artistName }
             </span>
           </div>
-          <div className="songs-list">a</div>
+          <div className="songs-list">
+            { songsFetched && songList.slice(1).map((song) => (
+              <MusicCard
+                trackName={ song.trackName }
+                previewUrl={ song.previewUrl }
+                key={ song.trackId }
+              />
+            )) }
+          </div>
         </div>
       </div>
     );
