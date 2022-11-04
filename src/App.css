@@ -151,7 +151,7 @@ input:active {
 
 .login-title {
   font-size: 48px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .login-form {
@@ -277,9 +277,15 @@ input:active {
   background-color: #4c4f69;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
+  column-gap: 24px;
   display: flex;
   font-size: 14px;
   font-weight: 500;
   justify-content: space-between;
   padding: 6px;
+}
+
+strong {
+  color: #a6e3a1;
+  font-weight: 800;
 }

@@ -30,7 +30,10 @@ export default class Login extends Component {
 
     return (
       <div data-testid="page-login" className="login-container">
-        <span className="login-title">Login</span>
+        <span className="login-title">
+          trybe
+          <strong>tunes</strong>
+        </span>
         <form className="login-form">
           <label htmlFor="login-name">
             <input
