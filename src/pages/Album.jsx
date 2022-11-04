@@ -4,11 +4,12 @@ import getMusics from '../services/musicsAPI';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 export default class Album extends Component {
   state = {
     songList: [],
+    favoriteList: [],
     albumArt: '',
     albumName: '',
     artistName: '',
@@ -17,17 +18,31 @@ export default class Album extends Component {
   };
 
   componentDidMount() {
-    this.grabSongs();
+    // this.grabSongs();
+    // primeiro vem as favoritas pra fazer a logica no grabSongs
+    this.grabFavorites();
   }
+
+  grabFavorites = async () => {
+    this.setState({ loading: true });
+    const favoriteSongs = await getFavoriteSongs();
+    this.setState({ favoriteList: favoriteSongs, loading: false }, this.grabSongs);
+  };
 
   grabSongs = async () => {
     this.setState({ loading: true });
-
+    const { favoriteList } = this.state;
     const { match } = this.props;
     const { id } = match.params;
 
     const songs = await getMusics(id);
-    const songsWithFavorites = songs.map((song) => ({ ...song, checked: false }));
+    const songsWithFavorites = songs
+      .map((song) => {
+        let isChecked = false;
+        const findSong = favoriteList.find((s) => s.trackId === song.trackId);
+        if (findSong) isChecked = true;
+        return ({ ...song, checked: isChecked });
+      });
     this.setState({
       songList: songsWithFavorites,
       albumArt: songs[0].artworkUrl100,
@@ -37,6 +52,8 @@ export default class Album extends Component {
       songsFetched: true,
     });
   };
+
+  
 
   favoriteSong = async (song) => {
     const { songList } = this.state;
