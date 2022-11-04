@@ -4,7 +4,7 @@ import getMusics from '../services/musicsAPI';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 export default class Album extends Component {
   state = {
@@ -53,15 +53,19 @@ export default class Album extends Component {
     });
   };
 
-  
-
   favoriteSong = async (song) => {
     const { songList } = this.state;
     const selectedSong = songList
       .findIndex(({ trackId }) => trackId === song.trackId);
-    songList[selectedSong].checked = true;
+
     this.setState({ loading: true });
-    await addSong(song);
+    if (songList[selectedSong].checked) {
+      songList[selectedSong].checked = false;
+      await removeSong(song);
+    } else {
+      songList[selectedSong].checked = true;
+      await addSong(song);
+    }
     this.setState({ loading: false, songList });
   };
 
