@@ -29,16 +29,16 @@ export default class Login extends Component {
     const { inputDisabled, loading } = this.state;
 
     return (
-      <div data-testid="page-login">
-        Login
-        <form>
+      <div data-testid="page-login" className="login-container">
+        <span className="login-title">Login</span>
+        <form className="login-form">
           <label htmlFor="login-name">
-            <span>Nome: </span>
             <input
               type="text"
               data-testid="login-name-input"
               id="login-name"
               onChange={ this.inputValidation }
+              placeholder="Nome"
             />
           </label>
           <button
@@ -46,6 +46,7 @@ export default class Login extends Component {
             disabled={ inputDisabled }
             data-testid="login-submit-button"
             onClick={ this.sendUser }
+            className="green"
           >
             Entrar
           </button>

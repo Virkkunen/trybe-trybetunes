@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Fira+Sans:wght@400;500;600;700;800&display=swap') ;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,15 +10,29 @@
 body {
   background-color: #1e1e2e;
   color: #cdd6f4;
+  font-family: Fira Sans , sans-serif;
 }
 
 .blue {
   background-color: #89b4fa;
 }
 
+.green {
+  background-color: #a6e3a1;
+}
+
 .link-no-decoration {
   color: #cdd6f4;
   text-decoration: none;
+  transition: 0.25s ease-in-out;
+}
+
+.link-no-decoration:hover {
+  filter: brightness(125%);
+}
+
+.link-no-decoration:active {
+  filter: brightness(75%);
 }
 
 /* search */
@@ -48,8 +64,10 @@ body {
 
 /* Button */
 button {
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 8px;
-  padding: 4px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  padding: 8px;
   transition: 0.25s ease-in-out;
 }
 
@@ -66,17 +84,33 @@ button:disabled {
 }
 
 input {
+  background-color: #eff1f5;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 8px;
-  padding: 4px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  color: #4c4f69;
+  padding: 8px;
+  width: 392px;
+}
+
+input:focus {
+  border: 0;
+}
+
+input:active {
+  border: 0;
 }
 
 /* Header */
 .header {
   align-items: baseline;
   background-color: #a6e3a1;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 0 0 8px 8px;
-  color: #1e1e2e;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+  color: #313244;
   display: flex;
+  font-weight: 600;
   justify-content: space-between;
   padding: 32px;
 }
@@ -87,8 +121,8 @@ input {
 }
 
 .header-link {
-  border-bottom: 1px solid black;
-  color: #11111b;
+  border-bottom: 1px solid #313244;
+  color: #313244;
   padding: 6px;
   text-decoration: none;
   transition: 0.25s ease-in-out;
@@ -100,6 +134,30 @@ input {
 
 .header-link:active {
   filter: brightness(75%);
+}
+
+/* login */
+.login-container {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+  justify-content: center;
+  row-gap: 48px;
+}
+
+.login-title {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.login-form {
+  background-color: #313244;
+  border-radius: 8px;
+  column-gap: 12px;
+  display: flex;
+  padding: 32px;
 }
 
 /* Loading */
@@ -144,6 +202,7 @@ input {
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-flow: column;
+  padding-bottom: 24px;
   width: 200px;
 }
 
@@ -155,7 +214,7 @@ input {
 .album-info {
   display: flex;
   flex-flow: column nowrap;
-  margin: 8px;
+  margin: 12px 8px;
   row-gap: 12px;
 }
 
