@@ -18,16 +18,18 @@ export default class MusicCard extends Component {
         <div className="music-card-right">
           <AudioPlayer previewUrl={ previewUrl } />
           <label
-            htmlFor="favorite-check"
+            htmlFor="favorita"
             className="favorite-check"
           >
             <input
               type="checkbox"
-              name="favorite-check"
+              name="favorita"
+              id="favorita"
               data-testid={ `checkbox-music-${trackId}` }
               onChange={ favoriteSong }
               checked={ checked }
             />
+            Favorita
           </label>
         </div>
       </div>
@@ -38,12 +40,13 @@ export default class MusicCard extends Component {
 MusicCard.defaultProps = {
   checked: false,
   favoriteSong: () => console.log('default favoriteSong'),
+  trackId: 0,
 };
 
 MusicCard.propTypes = {
   trackName: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
-  trackId: PropTypes.number.isRequired,
+  trackId: PropTypes.number,
   checked: PropTypes.bool,
   favoriteSong: PropTypes.func,
 };
