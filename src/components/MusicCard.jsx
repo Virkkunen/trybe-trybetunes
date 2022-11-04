@@ -13,11 +13,11 @@ export default class MusicCard extends Component {
           <label
             htmlFor="favorite-check"
             className="favorite-check"
-            data-testid={ `checkbox-music-${trackId}` }
           >
             <input
               type="checkbox"
               name="favorite-check"
+              data-testid={ `checkbox-music-${trackId}` }
               onChange={ favoriteSong }
               checked={ checked }
             />
