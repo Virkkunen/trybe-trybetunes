@@ -223,3 +223,8 @@ input:active {
 .album-title {
   font-weight: 700;
 }
+
+/* album page */
+.album-songs-container {
+  display: flex;
+}
