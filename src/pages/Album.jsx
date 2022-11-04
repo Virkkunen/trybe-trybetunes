@@ -4,6 +4,7 @@ import getMusics from '../services/musicsAPI';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
+import { addSong } from '../services/favoriteSongsAPI';
 
 export default class Album extends Component {
   state = {
@@ -26,14 +27,25 @@ export default class Album extends Component {
     const { id } = match.params;
 
     const songs = await getMusics(id);
+    const songsWithFavorites = songs.map((song) => ({ ...song, checked: false }));
     this.setState({
-      songList: songs,
+      songList: songsWithFavorites,
       albumArt: songs[0].artworkUrl100,
       albumName: songs[0].collectionName,
       artistName: songs[0].artistName,
       loading: false,
       songsFetched: true,
     });
+  };
+
+  favoriteSong = async (song) => {
+    const { songList } = this.state;
+    const selectedSong = songList
+      .findIndex(({ trackId }) => trackId === song.trackId);
+    songList[selectedSong].checked = true;
+    this.setState({ loading: true });
+    await addSong(song);
+    this.setState({ loading: false, songList });
   };
 
   render() {
@@ -70,6 +82,10 @@ export default class Album extends Component {
               <MusicCard
                 trackName={ song.trackName }
                 previewUrl={ song.previewUrl }
+                trackId={ song.trackId }
+                songInfo={ song }
+                favoriteSong={ () => this.favoriteSong(song) }
+                checked={ song.checked }
                 key={ song.trackId }
               />
             )) }
