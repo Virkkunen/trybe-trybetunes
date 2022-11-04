@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default class MusicCard extends Component {
+export default class AlbumCard extends Component {
   render() {
     const {
       // artistId,
@@ -21,7 +21,7 @@ export default class MusicCard extends Component {
         data-testid={ `link-to-album-${collectionId}` }
         className="link-no-decoration"
       >
-        <div className="music-card">
+        <div className="album-card">
           <img className="album-art" src={ artworkUrl } alt={ collectionName } />
           <div className="album-info">
             <span className="album-title">{ collectionName }</span>
@@ -33,7 +33,7 @@ export default class MusicCard extends Component {
   }
 }
 
-MusicCard.propTypes = {
+AlbumCard.propTypes = {
   // artistId: PropTypes.number.isRequired,
   artistName: PropTypes.string.isRequired,
   collectionId: PropTypes.number.isRequired,

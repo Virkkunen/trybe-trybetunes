@@ -197,8 +197,8 @@ input:active {
   width: 16px;
 }
 
-/* music card */
-.music-card {
+/* album card */
+.album-card {
   background-color: #11111b;
   border-radius: 8px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);

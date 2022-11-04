@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
-import MusicCard from '../components/MusicCard';
+import AlbumCard from '../components/AlbumCard';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 
 export default class Search extends Component {
@@ -76,7 +76,7 @@ export default class Search extends Component {
             { loading && <Loading />}
             <div className="search-results">
               { successfulSearchResults && searchResults.map((item) => (
-                <MusicCard
+                <AlbumCard
                   artistId={ item.artistId }
                   artistName={ item.artistName }
                   artworkUrl={ item.artworkUrl100 }
