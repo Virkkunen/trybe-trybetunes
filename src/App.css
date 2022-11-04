@@ -324,3 +324,44 @@ strong {
   padding: 48px;
   row-gap: 24px;
 }
+
+/* user card */
+.user-card {
+  background-color: #313244;
+  border-radius: 8px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: auto;
+  margin-top: 48px;
+  padding: 36px;
+  row-gap: 24px;
+  width: 50%;
+}
+
+.user-image-edit {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-name {
+  display: flex;
+  flex-flow: column;
+}
+
+.user-email {
+  display: flex;
+  flex-flow: column;
+}
+
+.user-description {
+  display: flex;
+  flex-flow: column;
+}
+
+.user-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}

@@ -20,15 +20,15 @@ export default class UserCard extends Component {
           <button type="button">Edit</button>
         </div>
         <div className="user-name">
-          <span>Nome</span>
+          <span className="user-card-title">Nome</span>
           <span>{name}</span>
         </div>
         <div className="user-email">
-          <span>Email</span>
+          <span className="user-card-title">Email</span>
           <span>{email}</span>
         </div>
         <div className="user-description">
-          <span>Descrição</span>
+          <span className="user-card-title">Descrição</span>
           <span>{description}</span>
         </div>
       </div>
