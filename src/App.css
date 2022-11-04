@@ -226,5 +226,44 @@ input:active {
 
 /* album page */
 .album-songs-container {
+  column-gap: 48px;
   display: flex;
+  justify-content: center;
+  margin: 0 24px;
+  padding: 48px;
+}
+
+.album-art-info {
+  background-color: #313244;
+  border-radius: 8px;
+  display: flex;
+  flex-basis: 1;
+  flex-flow: column wrap;
+  padding: 24px;
+  row-gap: 24px;
+}
+
+.album-art-info img {
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  object-fit: cover;
+  width: 200px;
+}
+
+.album-art-info span {
+  margin: -8px 0;
+}
+
+.album-title-detail {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.artist-title-detail {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.songs-list {
+  display: flex;
+  flex-basis: 2;
 }

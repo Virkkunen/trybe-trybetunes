@@ -45,7 +45,7 @@ export default class Album extends Component {
             <span className="album-title-detail">{ albumName }</span>
             <span className="artist-title-detail">{ artistName }</span>
           </div>
-          <div>a</div>
+          <div className="songs-list">a</div>
         </div>
       </div>
     );
