@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import UserCard from '../components/UserCard';
@@ -39,6 +40,7 @@ export default class Profile extends Component {
               />
             ) }
         </div>
+        <Footer />
       </div>
     );
   }

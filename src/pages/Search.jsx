@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import AlbumCard from '../components/AlbumCard';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import Footer from '../components/Footer';
 
 export default class Search extends Component {
   state = {
@@ -102,7 +103,7 @@ export default class Search extends Component {
             </div>
           </div>
         </div>
-
+        <Footer />
       </div>
     );
   }

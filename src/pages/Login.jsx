@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMusic } from '@fortawesome/free-solid-svg-icons';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
+import Footer from '../components/Footer';
 
 export default class Login extends Component {
   state = {
@@ -70,6 +71,8 @@ export default class Login extends Component {
         <div className="loading-container">
           { loading && <Loading />}
         </div>
+
+        <Footer />
       </div>
     );
   }

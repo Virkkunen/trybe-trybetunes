@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
@@ -44,6 +45,7 @@ export default class Favorites extends Component {
             />
           )) }
         </div>
+        <Footer />
       </div>
     );
   }

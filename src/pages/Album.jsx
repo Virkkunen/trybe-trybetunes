@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import Footer from '../components/Footer';
 
 export default class Album extends Component {
   state = {
@@ -111,6 +112,7 @@ export default class Album extends Component {
             )) }
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

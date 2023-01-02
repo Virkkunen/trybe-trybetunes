@@ -365,3 +365,32 @@ strong {
   font-weight: 700;
   margin-bottom: 8px;
 }
+
+a {
+  color: #b4befe;
+  text-decoration: none;
+}
+
+a:hover {
+  filter: brightness(125%);
+}
+
+a:active {
+  filter: brightness(75%);
+}
+
+.footer {
+  align-items: center;
+  color: #b4befe;
+  display: flex;
+  font-size: 14px;
+  gap: 0 24px;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.footer-item {
+  align-items: center;
+  display: flex;
+  gap: 0 6px;
+}
